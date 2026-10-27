@@ -1,0 +1,19 @@
+// The four lightwalletd calls the Watch needs (subset of lightwalletd's service.proto).
+syntax = "proto3";
+package cash.z.wallet.sdk.rpc;
+
+message BlockID { uint64 height = 1; bytes hash = 2; }
+message TxFilter { BlockID block = 1; uint64 index = 2; bytes hash = 3; }
+message RawTransaction { bytes data = 1; uint64 height = 2; }
+message ChainSpec {}
+message Empty {}
+message LightdInfo {
+  string version = 1; string vendor = 2; bool taddrSupport = 3; string chainName = 4;
+  uint64 saplingActivationHeight = 5; string consensusBranchId = 6; uint64 blockHeight = 7;
+}
+
+service CompactTxStreamer {
+  rpc GetLatestBlock(ChainSpec) returns (BlockID) {}
+  rpc GetTransaction(TxFilter) returns (RawTransaction) {}
+  rpc GetLightdInfo(Empty) returns (LightdInfo) {}
+}

@@ -1,0 +1,13 @@
+{
+  "name": "chit-wasm",
+  "description": "Browser bindings for Zcash Orchard/Ironwood payment disclosures",
+  "version": "0.1.0",
+  "license": "MIT OR Apache-2.0",
+  "files": [
+    "chit_wasm_bg.wasm",
+    "chit_wasm.js",
+    "chit_wasm.d.ts"
+  ],
+  "main": "chit_wasm.js",
+  "types": "chit_wasm.d.ts"
+}
